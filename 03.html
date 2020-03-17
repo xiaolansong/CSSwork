@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面换肤</title>
+    <style>
+        #div1{
+            width: 580px;
+            margin: 0 auto;
+        }
+        legend{
+            color: red;
+            font-size: 30px;
+            font-weight: 900;
+        }
+        #colors{
+            list-style-type: none;
+            padding-left: 0;
+            position: relative;
+        }
+        li{
+            width:20px;
+            height:20px;
+            float: left;
+            margin-right: 15px;
+        }
+        .c0{
+            background-color:rgb(255,0,0);
+            
+        }
+        #selection{
+            margin-top: 0px;
+        }
+        .c1{
+            background-color:rgb(0,0,255);
+            margin-top: 10px;
+        }
+        .c2{
+            background-color:rgb(255,0,255);
+            margin-top: 10px;
+        }
+        .c3{
+            background-color:rgb(255,255,0);
+            margin-top: 10px;
+        }
+        .c4{
+            background-color:rgb(255,165,0);
+            margin-top: 10px;
+        }
+        .c5{
+            background-color:rgb(173,255,47);
+            margin-top: 10px;
+        }
+        #paragraph{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <fieldset>
+            <legend>页面换肤</legend>
+            <fieldset>
+                <ul id="colors">
+                    <li class="c0" id="selection" title="红色"></li>
+                    <li class="c1" title="蓝色"></li>
+                    <li class="c2" title="紫色"></li>
+                    <li class="c3" title="黄色"></li>
+                    <li class="c4" title="橙色"></li>
+                    <li class="c5" title="黄绿色"></li>
+                </ul>
+            </fieldset>
+            <div id="paragraph" class="c0">
+                LocalStorage将数据保存在客户端本地的硬件设备中，即使浏览器被关闭了，
+                该数据仍然存在，下次打开浏览器访问网站时仍可以继续使用
+            </div>
+        </fieldset>
+    </div>
+</body>
+<script>
+    var lis=document.getElementsByTagName("li");
+    var colorList=new Array();
+    for(var i=0;i<lis.length;i++){
+        colorList[i]=getComputedStyle(lis[i]).backgroundColor;
+    }
+    if(!window.localStorage){
+		alert("您的浏览器不支持localStorage");
+	}
+    else{
+        lis[0].onclick=function(){
+            for(var i=0;i<lis.length;i++){
+                if(i==0){
+                    lis[i].style.marginTop=0;
+                }
+                else{
+                    lis[i].style.marginTop="10px";
+                }
+            }
+            var paragraph=document.getElementById("paragraph");
+            paragraph.style.backgroundColor=colorList[0];
+            window.localStorage.setItem('divBackGroundColor',colorList[0]);
+            window.localStorage.setItem('liTop',0);
+        }
+        lis[1].onclick=function(){
+            for(var i=0;i<lis.length;i++){
+                if(i==1){
+                    lis[i].style.marginTop=0;
+                }
+                else{
+                    lis[i].style.marginTop="10px";
+                }
+            }
+            var paragraph=document.getElementById("paragraph");
+            paragraph.style.backgroundColor=colorList[1];
+            window.localStorage.setItem('divBackGroundColor',colorList[1]);
+            window.localStorage.setItem('liTop',1);
+        }
+        lis[2].onclick=function(){
+            for(var i=0;i<lis.length;i++){
+                if(i==2){
+                    lis[i].style.marginTop=0;
+                }
+                else{
+                    lis[i].style.marginTop="10px";
+                }
+            }
+            var paragraph=document.getElementById("paragraph");
+            paragraph.style.backgroundColor=colorList[2];
+            window.localStorage.setItem('divBackGroundColor',colorList[2]);
+            window.localStorage.setItem('liTop',2);
+        }
+        lis[3].onclick=function(){
+            for(var i=0;i<lis.length;i++){
+                if(i==3){
+                    lis[i].style.marginTop=0;
+                }
+                else{
+                    lis[i].style.marginTop="10px";
+                }
+            }
+            var paragraph=document.getElementById("paragraph");
+            paragraph.style.backgroundColor=colorList[3];
+            window.localStorage.setItem('divBackGroundColor',colorList[3]);
+            window.localStorage.setItem('liTop',3);
+        }
+        lis[4].onclick=function(){
+            for(var i=0;i<lis.length;i++){
+                if(i==4){
+                    lis[i].style.marginTop=0;
+                }
+                else{
+                    lis[i].style.marginTop="10px";
+                }
+            }
+            var paragraph=document.getElementById("paragraph");
+            paragraph.style.backgroundColor=colorList[4];
+            window.localStorage.setItem('divBackGroundColor',colorList[4]);
+            window.localStorage.setItem('liTop',4);
+        }
+        lis[5].onclick=function(){
+            for(var i=0;i<lis.length;i++){
+                if(i==5){
+                    lis[i].style.marginTop=0;
+                }
+                else{
+                    lis[i].style.marginTop="10px";
+                }
+            }
+            var paragraph=document.getElementById("paragraph");
+            paragraph.style.backgroundColor=colorList[5];
+            window.localStorage.setItem('divBackGroundColor',colorList[5]);
+            window.localStorage.setItem('liTop',5);
+        }
+        window.onload=function(){
+            var paragraph=document.getElementById("paragraph");
+            paragraph.style.backgroundColor=window.localStorage.getItem("divBackGroundColor");
+            if(paragraph.style.backgroundColor==colorList[0]){
+                lis[0].style.marginTop=0;
+            }else if(paragraph.style.backgroundColor==colorList[1]){
+                lis[1].style.marginTop=0;
+                lis[0].style.marginTop="10px";
+            }else if(paragraph.style.backgroundColor==colorList[2]){
+                lis[2].style.marginTop=0;
+                lis[0].style.marginTop="10px";
+            }else if(paragraph.style.backgroundColor==colorList[3]){
+                lis[3].style.marginTop=0;
+                lis[0].style.marginTop="10px";
+            }else if(paragraph.style.backgroundColor==colorList[4]){
+                lis[4].style.marginTop=0;
+                lis[0].style.marginTop="10px";
+            }else if(paragraph.style.backgroundColor==colorList[5]){
+                lis[5].style.marginTop=0;
+                lis[0].style.marginTop="10px";
+            }
+            
+        }
+    }
+</script>
+</html>
